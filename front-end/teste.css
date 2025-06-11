@@ -1,0 +1,644 @@
+:root {
+    --cor-principal-gradiente: linear-gradient(to right, #C31818, #F37430);
+    /* Seu gradiente principal */
+    --cor-botoes-hover: linear-gradient(to right, #A31515, #D05A20);
+    /* Gradiente levemente mais escuro para hover */
+    --cor-fundo-claro: #FFEEDA;
+    /* Cor de fundo do seu body */
+    --cor-fundo-secao: white;
+    /* Cor de fundo para seções como o estoque */
+    --cor-texto-claro: white;
+    --cor-texto-escuro: #333;
+    /* Cor para títulos e textos gerais */
+    --borda-padrao: #ccc;
+    /* Cor de borda padrão dos seus inputs */
+    --sombra-leve: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --sombra-media: 6px 6px 15px rgba(0, 0, 0, 0.3);
+    /* Sua sombra padrão */
+    --cor-tabela-linha-par: #f8f8f8;
+    /* Um cinza bem clarinho para linhas alternadas */
+    --cor-tabela-hover: #D0E8F2;
+    /* Sua cor de hover de tabela */
+}
+
+/* Estilos para a seção de estoque principal */
+#estoque-section {
+    background-color: var(--cor-fundo-secao);
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: var(--sombra-media);
+    width: 70vw;
+    max-width: 960px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* O main#main-content já centraliza */
+    margin-top: 50px;
+    /* Adiciona uma margem superior para afastar do header */
+    margin-bottom: 50px;
+    /* Adiciona uma margem inferior para afastar do footer */
+}
+
+#estoque-section table {
+    margin-left: 100px;
+
+}
+
+/* Título principal da seção de estoque */
+#estoque-section>h1 {
+    font-size: 40px;
+    /* Remova as linhas de position e bottom se existirem: */
+    /* position: relative; */
+    /* bottom: 55px; */
+
+    margin-top: 20px;
+    /* Aumente este valor para empurrar o título para baixo. */
+    /* Você pode experimentar valores como 50px, 70px, 90px. */
+    text-transform: uppercase;
+    color: var(--cor-texto-escuro);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    /* Mantém um espaço entre o título e os controles. */
+}
+
+/* Contêiner para os elementos de topo (Busca e Cadastro) */
+#estoque-top-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ESSENCIAL para alinhar verticalmente os itens */
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    top: 70px;
+    /* Ajuste este valor (ex: 50px, 70px) para a posição vertical desejada */
+}
+
+/* Formulário de Busca (lado esquerdo) */
+#estoque-search-form {
+    display: flex;
+    align-items: center;
+    /* Alinha o input group e o botão de busca dentro do formulário */
+    gap: 15px;
+    flex-grow: 1;
+    justify-content: flex-start;
+    max-width: 60%;
+    /* Ou 50% ou 70%, dependendo de como você quer que ocupe o espaço */
+    /* Remova margin-bottom se presente aqui, pois o gap do parent top-controls é suficiente */
+}
+
+/* Input Container do formulário de busca */
+#estoque-input-group {
+    width: 100%;
+    height: 45px;
+    /* Defina uma altura fixa igual à altura dos botões */
+    padding: 0 10px;
+    /* Remova o padding-top/bottom daqui e deixe o input preencher */
+    display: flex;
+    align-items: center;
+    /* Alinha o ícone e o input verticalmente dentro do grupo */
+    position: relative;
+    border: 1px solid var(--borda-padrao);
+    border-radius: 5px;
+}
+
+#estoque-input-group i {
+    position: absolute;
+    left: 10px;
+    /* Mantém a posição lateral */
+    color: #aaa;
+    font-size: 20px;
+    top: 50%;
+    /* Centraliza verticalmente o ícone em relação ao seu contêiner */
+    transform: translateY(-50%);
+    /* Ajuste fino para o centro exato */
+}
+
+/* Ícone dentro do input de busca */
+#estoque-input-group i {
+    position: absolute;
+    left: 10px;
+    color: #aaa;
+    font-size: 20px;
+}
+
+/* Input de busca */
+#estoque-alimento-input {
+    width: calc(100% - 35px);
+    /* Mantém espaço para o ícone */
+    height: 100%;
+    /* Preenche a altura do #estoque-input-group */
+    padding: 0 10px 0 35px;
+    /* Ajuste o padding para o texto dentro do input */
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#estoque-alimento-input:focus {
+    border-color: #66afe9;
+    /* Exemplo de foco */
+}
+
+/* Botão de Busca */
+#estoque-search-button {
+    /* Usando o ID */
+    width: 35%;
+    height: 45px;
+    background: var(--cor-principal-gradiente);
+    color: var(--cor-texto-claro);
+    border: none;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    box-shadow: none;
+    padding: 0 10px;
+    margin: 0;
+}
+
+#estoque-search-button:hover {
+    transform: scale(1.03);
+}
+
+#estoque-search-button,
+#estoque-add-button {
+    width: auto;
+    /* Pode ser auto para se ajustar ao texto ou 35% como você tinha */
+    height: 45px;
+    /* Mesma altura que o #estoque-input-group */
+    background: var(--cor-principal-gradiente);
+    color: var(--cor-texto-claro);
+    border: none;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    box-shadow: none;
+    padding: 0 20px;
+    /* Ajuste o padding horizontal para o botão */
+    margin: 0;
+    display: inline-flex;
+    /* Para alinhar o ícone em "Novo Item" */
+    align-items: center;
+    /* Para alinhar o ícone em "Novo Item" */
+    gap: 10px;
+}
+
+#estoque-add-button {
+    position: relative;
+    bottom: 30px;
+}
+
+/* Botão de Cadastro (lado direito) */
+#estoque-add-button {
+    /* Usando o ID */
+    width: auto;
+    height: 45px;
+    background: var(--cor-principal-gradiente);
+    color: var(--cor-texto-claro);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: normal;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition-duration: 0.5s;
+    box-shadow: none;
+    margin: 0;
+}
+
+#estoque-add-button:hover {
+    transform: scale(1.03);
+}
+
+/* Mensagens de erro/informação */
+#estoque-error-message,
+#estoque-no-results-message,
+#estoque-initial-message {
+    /* Usando os IDs */
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    width: 100%;
+    position: relative;
+    bottom: 30px;
+    padding: 10px;
+    /* Adiciona padding para as mensagens */
+    border-radius: 5px;
+    /* Arredonda as bordas das mensagens */
+}
+
+#estoque-error-message {
+    color: red;
+    background-color: #fdd;
+    /* Fundo levemente vermelho */
+    border: 1px solid #f99;
+}
+
+#estoque-no-results-message,
+#estoque-initial-message {
+    color: gray;
+    background-color: #eee;
+    /* Fundo levemente cinza */
+    border: 1px solid #ddd;
+}
+
+
+/* Tabela de Resultados */
+#estoque-results-container {
+    /* Usando o ID */
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 30px;
+}
+
+#estoque-results-container h2 {
+    color: var(--cor-texto-escuro);
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#estoque-data-table {
+    /* Usando o ID */
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    /* Muda para separate para permitir border-spacing e border-radius */
+    border-spacing: 0;
+    /* Remove espaçamento para controlar bordas */
+    box-shadow: var(--sombra-leve);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Importante para que o border-radius funcione na tabela inteira */
+}
+
+#estoque-data-table th,
+#estoque-data-table td {
+    border: none;
+    /* Remove bordas individuais, a borda da tabela ou linhas controlam */
+    padding: 15px;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+#estoque-data-table th {
+    background: var(--cor-principal-gradiente);
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+
+/* Bordas arredondadas para o cabeçalho da tabela */
+#estoque-data-table thead tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+#estoque-data-table thead tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+/* Bordas arredondadas para o rodapé da tabela (se houver, ou para a última linha do tbody) */
+#estoque-data-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+#estoque-data-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+
+#estoque-data-table tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo-claro);
+    /* Fundo claro para linhas pares */
+}
+
+#estoque-data-table tbody tr:nth-child(odd) {
+    background-color: var(--cor-fundo-secao);
+    /* Fundo de seção para linhas ímpares */
+}
+
+
+#estoque-data-table tbody tr:hover {
+    background-color: var(--cor-tabela-hover);
+    transition: background-color 0.2s ease;
+}
+
+/* Linha divisória entre as linhas do corpo da tabela */
+#estoque-data-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--borda-padrao);
+    /* Borda apenas entre as linhas, não na última */
+}
+
+/* Estilos para os botões de Ação na Tabela */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    /* Tamanho fixo para o botão */
+    height: 35px;
+    /* Tamanho fixo para o botão */
+    border-radius: 50%;
+    /* Torna o botão redondo */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    /* Para o link de editar */
+    color: white;
+    /* Cor do ícone */
+    margin: 0 5px;
+    /* Espaçamento entre os botões */
+    border: none;
+    /* Remove a borda padrão do botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+}
+
+.action-button i {
+    pointer-events: none;
+    /* Garante que o clique seja no botão e não no ícone */
+}
+
+.edit-button {
+    background-color: #007bff;
+    /* Azul para editar */
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.delete-button {
+    background-color: #dc3545;
+    /* Vermelho para excluir */
+}
+
+.delete-button:hover {
+    background-color: #bd2130;
+    transform: scale(1.1);
+}
+
+
+/* Estilos para o Modal de Confirmação */
+.modal-overlay {
+    display: none;
+    /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
+}
+
+.modal-content {
+    background-color: var(--cor-fundo-secao);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--sombra-media);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.8);
+    /* Inicia menor */
+    opacity: 0;
+    /* Inicia transparente */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    /* Transição para animação */
+}
+
+.modal-overlay.active {
+    /* Adiciona display flex quando ativo */
+    display: flex;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    /* Escala para o tamanho normal */
+    opacity: 1;
+    /* Torna visível */
+}
+
+.modal-content h3 {
+    font-size: 2em;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.2em;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 30px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-button.confirm {
+    background: linear-gradient(to right, #dc3545, #bd2130);
+    /* Vermelho para confirmar exclusão */
+    color: white;
+}
+
+.modal-button.confirm:hover {
+    background: linear-gradient(to right, #bd2130, #a71d2a);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button.cancel {
+    background: var(--cor-principal-gradiente);
+    /* Use seu gradiente principal para cancelar */
+    color: white;
+}
+
+.modal-button.cancel:hover {
+    background: var(--cor-botoes-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Esconder o overlay se não estiver ativo para acessibilidade */
+.modal-overlay:not(.active) {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+
+/* Media Queries para Responsividade */
+@media screen and (max-width: 768px) {
+    #estoque-section {
+        padding: 20px;
+        width: 90vw;
+        border-radius: 30px;
+        /* Menos arredondado para telas menores */
+    }
+
+    #estoque-section>h1 {
+        font-size: 30px;
+        bottom: 30px;
+    }
+
+    #estoque-top-controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        bottom: 0;
+        margin-bottom: 20px;
+    }
+
+    #estoque-search-form {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    #estoque-input-group {
+        width: 100%;
+        height: auto;
+    }
+
+    #estoque-alimento-input {
+        width: calc(100% - 35px);
+        font-size: 16px;
+        padding: 10px 10px 10px 35px;
+    }
+
+    #estoque-input-group i {
+        left: 15px;
+        /* Ajuste para centralizar em telas menores */
+        font-size: 18px;
+    }
+
+    #estoque-search-button,
+    #estoque-add-button {
+        width: 80%;
+        /* Botões mais largos em telas menores */
+        height: 40px;
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    #estoque-results-container {
+        margin-top: 20px;
+        bottom: 0;
+    }
+
+    #estoque-results-container h2 {
+        font-size: 1.8em;
+    }
+
+    #estoque-data-table {
+        font-size: 0.9em;
+        min-width: 500px;
+        /* Mantém um min-width para evitar quebras */
+    }
+
+    #estoque-data-table th,
+    #estoque-data-table td {
+        padding: 12px 10px;
+    }
+
+    /* Ajuste para o padding do main para evitar que a seção cole nas bordas da tela */
+    #main-content {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #estoque-section {
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    #estoque-section>h1 {
+        font-size: 24px;
+        bottom: 10px;
+        /* Reduz ainda mais */
+    }
+
+    #estoque-top-controls {
+        gap: 10px;
+    }
+
+    #estoque-alimento-input {
+        font-size: 14px;
+        padding: 8px 8px 8px 30px;
+    }
+
+    #estoque-input-group i {
+        left: 10px;
+        font-size: 16px;
+    }
+
+    #estoque-search-button,
+    #estoque-add-button {
+        width: 90%;
+        height: 35px;
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+
+    #estoque-results-container h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    #estoque-data-table {
+        font-size: 0.75em;
+        min-width: 350px;
+        /* Ajuste para telas muito pequenas */
+    }
+
+    #estoque-data-table th,
+    #estoque-data-table td {
+        padding: 8px 6px;
+    }
+
+    #estoque-error-message,
+    #estoque-no-results-message,
+    #estoque-initial-message {
+        font-size: 0.9em;
+        bottom: 15px;
+    }
+}

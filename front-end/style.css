@@ -1,0 +1,205 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás de tudo */
+    opacity: 0.7; /* Transparência */
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre toda a tela */
+}
+
+header {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    max-height: 5vh;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
+    height: 60%;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* sombra suave */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    bottom: 55px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    /* color: #aaa; */
+    font-size: 20px;
+}
+
+.input-container input {
+    width: 200px;
+    height: 30px;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+form button {
+    width: 250px;
+    height: 45px;
+    background: #a50000;
+    color: white;
+    border: none;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+form button:hover {
+    transform: scale(1.03);
+}
+
+form a {
+    color: #a50000;
+    position: relative;
+    left: 30%;
+    /* bottom: 50px; */
+    /* right: 50%; */
+}
+
+#logo_formulario {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    bottom: 70px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 5px #aaa;
+}
+
+#logo_formulario img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    /* border: 3px solid #a50000; */
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.onda {
+    position: absolute; /* Permite posicionar atrás do conteúdo */
+    top: 0;
+    left: 0;
+    width: 410px;
+    height: 800px;
+    z-index: -1; 
+    /* transform: rotate(45deg); Altere o valor para ajustar o ângulo da diagonal */
+    /* overflow-y: hidden; */
+    pointer-events: none; /* Permite clicar nos elementos à frente */
+}
+
+.onda .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: url(../assets/wave.png);
+    background-size: 550px 250px;
+}
+
+.onda .wave.wave1{
+    /* background: url(../assets/ondaamarela.png); */
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+.onda .wave.wave2{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+.onda .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.7;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
+}
+
+
+
+
+  

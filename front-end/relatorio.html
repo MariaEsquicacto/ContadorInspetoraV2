@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="relatorio.css">
+    <title>Relatório</title>
+</head>
+<body>
+    <div class="background">
+        <img src="../assets/FundoDasTelas.png" alt="">
+    </div>
+
+    <div class="menu">
+        <button class="hamburguer">
+            <div id="barra1" class="barra"></div>
+            <div id="barra2" class="barra"></div>
+            <div id="barra3" class="barra"></div>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="estoque.php">Estoque</a></li>
+                <li><a href="calendario.html">Calendário</a></li>
+                <li><a href="relatorio.html">Contagem</a></li>
+                <li><a href="index.php">Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="conteiner">
+            <h1>Relatório</h1>
+            <div class="botoes">
+                <a href="esc_sala.html"><button type="submit">Ensino Fundamental 1A</button></a>
+                <a href=""><button type="submit">Ensino Fundamental 1B</button></a>
+                <a href=""><button type="submit">Ensino Fundamental 2</button></a>
+                <a href=""><button type="submit">Ensino Médio</button></a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const abrir_menu = document.querySelector('.hamburguer');
+        const menu = document.querySelector('.menu');
+
+        abrir_menu.addEventListener('click', () => {
+            abrir_menu.classList.toggle('aberto');
+            menu.classList.toggle('ativo');
+        });
+    </script>
+</body>
+</html>
