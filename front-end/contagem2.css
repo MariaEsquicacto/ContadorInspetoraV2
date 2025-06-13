@@ -35,8 +35,8 @@ main{
 }
 
 .conteiner{
-    width: 80%;
-    height: 400px;
+    width: 30%;
+    height: 490px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -64,7 +64,7 @@ h1{
 
 .botoes button{
     width: 290px;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     margin: 20px;
     background-color: #ffb700;
@@ -99,7 +99,7 @@ nav ul li:hover {
     left: -350px;
     width: 190px;
     height: 40%;
-    background-color: #F14227;
+    background-color: #ffac38;
     transition: left 0.5s ease;
     border-radius: 5px;
 }
@@ -125,7 +125,7 @@ nav ul li:hover {
     text-decoration: none;
     cursor: pointer;
     padding: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .hamburguer,
@@ -170,5 +170,33 @@ nav ul li:hover {
 
 #barra3 {
     top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .conteiner{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .conteiner{
+        width: 80%;
+    }
+    .conteiner h1{
+        font-size: 28px;
+    }
+    .botoes button{
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .conteiner{
+        width: 90%;
+        height: 60%;
+    }
+    .botoes button{
+        font-size: 18px;
+    }
 }
   

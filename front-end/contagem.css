@@ -35,7 +35,7 @@ main{
 }
 
 .conteiner{
-    width: 80%;
+    width: 30%;
     height: 250px;
     background-color: white;
     border-radius: 20px;
@@ -63,10 +63,10 @@ main{
 
 .sn{
     margin-top: 30px;
-    width: 80%;
+    width: 60%;
     height: auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -89,7 +89,7 @@ main{
 
 .duvida{
     margin-top: 10px;
-    width: 80%;
+    width: 30%;
     height: 60px;
     background-color: #ffae00;
     border-radius: 20px;
@@ -122,7 +122,7 @@ nav ul li:hover {
     left: -350px;
     width: 190px;
     height: 40%;
-    background-color: #F14227;
+    background-color: #ffac38;
     transition: left 0.5s ease;
     border-radius: 5px;
 }
@@ -148,7 +148,7 @@ nav ul li:hover {
     text-decoration: none;
     cursor: pointer;
     padding: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .hamburguer,
@@ -193,5 +193,38 @@ nav ul li:hover {
 
 #barra3 {
     top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .conteiner{
+        width: 50%;
+    }
+    .duvida{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .conteiner{
+        width: 70%;
+    }
+    .duvida{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .conteiner{
+        width: 80%;
+    }
+    .duvida{
+        width: 80%;
+    }
+    .corverde img{
+        width: 55px;
+    }
+    .corvermelho img{
+        width: 55px;
+    }
 }
   

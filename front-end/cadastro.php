@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.5">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Cadastro</title>
 </head>
@@ -44,14 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <img src="../assets/FundoDasTelas.png" alt="">
     </div>
 
-    
-      
-
 
     <header></header>
 
     <main>
-        <section id="section_form">
+        <section id="section_form_cadastro">
             <div id="logo_formulario">
                 <img src="../assets/DevTheBlaze.png" alt="Logo DevTheBlaze">
             </div>
@@ -80,6 +77,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </section>
     </main>
+
+    <section class="onda">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
 
     <footer></footer>
 

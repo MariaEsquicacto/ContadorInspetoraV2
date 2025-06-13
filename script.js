@@ -82,5 +82,5 @@ atualizarMesAno();
 gerarCalendario();
 
 function toggleContagem(){
-    window.location.href = 'contagem.html'
+    window.location.href = 'contagem2.html'
 }

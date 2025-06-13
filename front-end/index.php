@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $mensagem = null;
 $icone = 'error';
 $titulo = 'Erro';
@@ -24,27 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 
     $context = stream_context_create($opts);
-    $result = file_get_contents('http://localhost/inspetora/back-end/endpoints/login_user.php', false, $context);
+    $result = file_get_contents('http://localhost/contador_phpv2-main/back-end/endpoints/login_user.php', false, $context);
+
 
     if ($result === false) {
         $mensagem = 'Erro ao conectar com o servidor.';
     } else {
-        $user = json_decode($result, true);
+        $resposta = json_decode($result, true);
 
-        if (isset($user['erro'])) {
-            $mensagem = $user['erro'];
+        if (isset($resposta['erro'])) {
+            $mensagem = $resposta['erro'];
         } else {
-            session_start();
+            // Não tem $resposta['usuario'], então ajuste para pegar os dados corretos
+            $_SESSION['id'] = $resposta['sub'] ?? null; // ou outro campo que identificar o usuário
+            $_SESSION['nome'] = $resposta['nome'] ?? null; // talvez não exista, depende do payload do token
 
-            var_dump($result);
-exit;
-            $_SESSION['id'] = $user['usuario']['id_usuario'];
-            $_SESSION['nome'] = $user['usuario']['nome_usuario'];
-            $_SESSION['nivel'] = $user['usuario']['nivel_usuario'];
-            $_SESSION['senha'] = $senha;
-            unset($senha);
+            $_SESSION['access_token'] = $resposta['accessToken'] ?? null;
+            $_SESSION['refresh_token'] = $resposta['refreshToken'] ?? null;
 
-            $mensagem = $user['mensagem'] ?? 'Login realizado com sucesso!';
+            $mensagem = $resposta['mensagem'] ?? 'Login realizado com sucesso!';
             $icone = 'success';
             $titulo = 'Sucesso';
             $redirecionar = true;
@@ -54,12 +54,13 @@ exit;
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.5">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Login</title>
 </head>
@@ -111,7 +112,7 @@ exit;
                 text: <?= json_encode($mensagem) ?>
             }).then(() => {
                 <?php if ($redirecionar): ?>
-                    window.location.href = './calendario.php';
+                    window.location.href = './calendario.html';
                 <?php endif; ?>
             });
         </script>
