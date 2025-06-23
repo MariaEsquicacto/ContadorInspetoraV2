@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás de tudo */
+    opacity: 0.7; /* Transparência */
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre toda a tela */
+}
+
+main{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#conjunto-categorias{
+    width: 30%;
+    height: 400px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.box-categorias{
+    width: 90%;
+    height: auto;
+    margin-top: 30px;
+    padding-left: 22%;
+}
+
+.btn_contagens{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #ffb700;
+    border: 0;
+    transition: 0.3s ease-in-out;
+    font-size: 17px;
+}
+
+.btn_contagens:hover{
+    transform: scale(1.05);
+}
+
+
+#btn_feito button{
+    background-color: #f8b200;
+    width: 130px;
+    height: 30px;
+    border: 0;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#btn_feito button:hover {
+    transform: scale(1.1);
+}
+/* modal */
+
+.modal-contagem {
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 200px;
+    text-align: center;
+}
+
+.modal-contagem::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 0;
+}
+
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn-feito {
+    background-color: #f8b200;
+    color: black;
+    padding: 12px 20px;
+    font-size: 19px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+nav {
+    position: absolute;
+    top: 70px;
+    width: 250px;
+    margin-left: 20px;
+    display: flex;
+}
+
+nav ul li:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 190px;
+    height: 40%;
+    background-color: #ffac38;
+    transition: left 0.5s ease;
+    border-radius: 5px;
+}
+
+.menu.ativo {
+    left: 0;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu ul li {
+    list-style-type: none;
+}
+
+.menu ul li a {
+    color: white;
+    text-transform: capitalize;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.hamburguer,
+.barra {
+    position: fixed;
+}
+
+.hamburguer {
+    display: block;
+    border: none;
+    background-color: #F14227;
+    cursor: pointer;
+}
+
+.hamburguer.aberto #barra1 {
+    background-color: white;
+    transform: rotate(45deg) translate(6px, 8px);
+}
+
+.hamburguer.aberto #barra2 {
+    background-color: transparent;
+}
+
+.hamburguer.aberto #barra3 {
+    background-color: white;
+    transform: rotate(-45deg) translate(6px, -8px);
+}
+
+.barra {
+    top: 30px;
+    left: 30px;
+    background-color: black;
+    width: 35px;
+    height: 5px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+#barra2 {
+    top: 40px;
+}
+
+#barra3 {
+    top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    #conjunto-categorias{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #conjunto-categorias{
+        width: 70%;
+        padding-right: 5%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #conjunto-categorias{
+        width: 75%;
+        /* padding-right: 8%; */
+    }
+    .box-categorias{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+    #conjunto-categorias h1{
+        font-size: 25px;
+    }
+    .botoes-anos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .btn_contagens{
+        font-size: 17px;
+        
+    }
+    #btn_feito{
+        font-size: 19px;
+    }
+}
+  

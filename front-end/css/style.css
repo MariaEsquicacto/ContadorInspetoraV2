@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás de tudo */
+    opacity: 0.7; /* Transparência */
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre toda a tela */
+}
+
+header {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    max-height: 5vh;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section_form, #section_form_cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    height: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* sombra suave */
+}
+
+#section_form_cadastro{
+    height: 60%;
+}
+
+form, #section_form_cadastro form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    bottom: 55px;
+}
+
+.input-container, #section_form_cadastro .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-container i, #section_form_cadastro .input-container i {
+    position: absolute;
+    left: 10px;
+    /* color: #aaa; */
+    font-size: 20px;
+}
+
+.input-container input, #section_form_cadastro .input-container input {
+    width: 300px;
+    height: 30px;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#section_form_cadastro .input-container input{
+    width: 300px;
+}
+
+form button, #section_form_cadastro form button {
+    width: 340px;
+    height: 45px;
+    background: #a50000;
+    color: white;
+    border: none;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+#section_form_cadastro form button{
+    width: 340px;
+}
+
+form button:hover, #section_form_cadastro form button:hover {
+    transform: scale(1.03);
+}
+
+form a, #section_form_cadastro form a{
+    color: #a50000;
+    position: relative;
+    left: 30%;
+    /* bottom: 50px; */
+    /* right: 50%; */
+}
+
+#logo_formulario, #section_form_cadastro #logo_formulario {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    bottom: 70px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 5px #aaa;
+}
+
+#logo_formulario img, #section_form_cadastro #logo_formulario img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    /* border: 3px solid #a50000; */
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.onda, #section_form_cadastro .onda {
+    position: absolute; /* Permite posicionar atrás do conteúdo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    z-index: -1; 
+    /* transform: rotate(45deg); Altere o valor para ajustar o ângulo da diagonal */
+    /* overflow-y: hidden; */
+    pointer-events: none; /* Permite clicar nos elementos à frente */
+}
+
+.onda .wave, #section_form_cadastro .onda .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: url(../assets/wave.png);
+    background-size: 800px 250px;
+}
+
+.onda .wave.wave1, #section_form_cadastro .onda .wave.wave1{
+    /* background: url(../assets/ondaamarela.png); */
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+.onda .wave.wave2, #section_form_cadastro .onda .wave.wave2{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+.onda .wave.wave3, #section_form_cadastro .onda .wave.wave3{
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.7;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #section_form, #section_form_cadastro {
+        width: 60%;
+        height: 50%;
+        border-radius: 10px;
+    }
+
+    #section_form_cadastro {
+        height: 55%;
+    }
+
+    .input-container input, #section_form_cadastro .input-container input {
+        width: 250px;
+        height: 25px;
+        font-size: 18px;
+    }
+
+    .onda, #section_form_cadastro .onda {
+        width: 100%;
+        height: 800px;
+    }
+
+    .onda .wave, #section_form_cadastro .onda .wave {
+        width: 100%;
+        height: 200px;
+        background-size: 700px 200px;
+    }
+
+    #logo_formulario, #section_form_cadastro #logo_formulario {
+        bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #section_form, #section_form_cadastro {
+        width: 70%;
+        height: 50%;
+        border-radius: 10px;
+    }
+
+    #section_form_cadastro {
+        height: 55%;
+    }
+
+    .input-container input, #section_form_cadastro .input-container input {
+        width: 250px;
+        height: 20px;
+        font-size: 16px;
+    }
+
+    .onda, #section_form_cadastro .onda {
+        width: 100%;
+        height: 800px;
+    }
+
+    .onda .wave, #section_form_cadastro .onda .wave {
+        width: 100%;
+        height: 200px;
+        background-size: 500px 200px;
+    }
+
+    #logo_formulario, #section_form_cadastro #logo_formulario {
+        bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #section_form, #section_form_cadastro {
+        width: 80%;
+        height: 50%;
+        border-radius: 10px;
+    }
+    #section_form_cadastro{
+        height: 55%;
+    }
+
+    .input-container input, #section_form_cadastro .input-container input {
+        width: 200px;
+        height: 20px;
+        font-size: 15px;
+    }
+
+    .onda, #section_form_cadastro .onda {
+        width: 100%;
+        height: 800px;
+    }
+
+    .onda .wave, #section_form_cadastro .onda .wave {
+        width: 100%;
+        height: 250px;
+        background-size: 390px 250px;
+    }
+
+    form button, #section_form_cadastro form button {
+        width: 250px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #logo_formulario {
+        bottom: 80px;
+    }
+    #section_form_cadastro #logo_formulario{
+        bottom: 60px;
+    }
+}
+
+
+
+
+
+  
